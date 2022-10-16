@@ -9,6 +9,7 @@ import MainPage from "@/views/MainPage.vue";
 </template>
 
 <style>
+
 .block {
   width: 50%;
   min-height: 500px;
@@ -19,14 +20,5 @@ import MainPage from "@/views/MainPage.vue";
   padding: 10px;
 }
 
-.product-block {
-  display: flex;
-  padding: 5px;
-  justify-content: space-between;
-  align-items: center;
-  border: 1px solid black;
-  width: 200px;
-  height: 50px;
-  margin: 10px;
-}
+
 </style>
