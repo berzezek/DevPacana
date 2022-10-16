@@ -3,13 +3,11 @@
 
     <h1>RightBlock</h1>
     <div
-        class="product-block"
         v-for="block in getRightBottomBlock"
         :key="block.id"
         @click="addToRightBlock(block)"
     >
-      <p>{{block.id}}</p>
-      <p>{{block.name}}</p>
+      <app-product :product="block" />
     </div>
   </div>
 </template>
@@ -17,9 +15,11 @@
 <script>
 import {mapState} from 'pinia';
 import {useBlocksStore} from "@/stores/blocks";
+import AppProduct from "@/components/AppProduct.vue";
 
 export default {
   name: "RightBottom",
+  components: {AppProduct},
   computed: {
     ...mapState(useBlocksStore, ['getRightBottomBlock'])
   },
