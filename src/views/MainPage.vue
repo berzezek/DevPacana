@@ -1,19 +1,17 @@
 <template>
   <div class="main">
 
-    <div class="top-blocks">
-      <left-block :leftBlock="leftBlock"/>
-      <right-block :rightBlock="rightBlock"/>
+    <div class="blocks">
+      <left-block />
+      <right-block />
     </div>
 
-    <div class="bottom-blocks">
-      <left-bottom @addToLeftBlock="addToLeftBlock"/>
-      <right-bottom @addToRightBlock="addToRightBlock" />
+    <div class="blocks">
+      <left-bottom />
+      <right-bottom  />
     </div>
 
   </div>
-
-
 </template>
 
 <script>
@@ -29,25 +27,6 @@ export default {
     RightBottom,
     LeftBottom
   },
-  data() {
-    return {
-      rightBlock: {},
-      leftBlock: []
-    }
-  },
-  methods: {
-    addToRightBlock(block) {
-      this.rightBlock = block;
-    },
-    addToLeftBlock(block) {
-      if(this.leftBlock.length < 6) {
-        this.leftBlock.push(block);
-      } else {
-        alert('You can add only 6 blocks')
-      }
-
-    }
-  }
 }
 </script>
 
@@ -60,14 +39,10 @@ export default {
   height: 100%;
 }
 
-.top-blocks {
+.blocks {
   display: flex;
   justify-content: space-between;
 }
 
-.bottom-blocks {
-  display: flex;
-  justify-content: space-between;
-}
 
 </style>

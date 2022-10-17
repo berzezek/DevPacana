@@ -1,8 +1,8 @@
 <template>
   <div class="block">
-    <h1>LeftBlock</h1>
+    <h1>LeftBlock {{ getLeftBlock.length }} / 6</h1>
     <div
-        v-for="block in leftBlock"
+        v-for="block in getLeftBlock"
         :key="block.id"
     >
       <app-product :product="block" />
@@ -12,16 +12,16 @@
 
 <script>
 import AppProduct from "@/components/AppProduct.vue";
+import { mapState } from 'pinia';
+import { useBlocksStore } from "@/stores/blocks";
 
 export default {
   name: "LeftBlock",
   components: {AppProduct},
-  props: {
-    leftBlock: {
-      default: () => [],
-      type: Array,
-    }
+  computed: {
+    ...mapState(useBlocksStore, ['getLeftBlock'])
   },
+
 }
 </script>
 

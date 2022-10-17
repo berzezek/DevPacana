@@ -1,7 +1,7 @@
 <template>
   <div class="block">
+    <h1>RightBottom</h1>
 
-    <h1>RightBlock</h1>
     <div
         v-for="block in getRightBottomBlock"
         :key="block.id"
@@ -9,11 +9,12 @@
     >
       <app-product :product="block" />
     </div>
+
   </div>
 </template>
 
 <script>
-import {mapState} from 'pinia';
+import {mapState, mapActions} from 'pinia';
 import {useBlocksStore} from "@/stores/blocks";
 import AppProduct from "@/components/AppProduct.vue";
 
@@ -24,14 +25,7 @@ export default {
     ...mapState(useBlocksStore, ['getRightBottomBlock'])
   },
   methods: {
-    addToRightBlock(block) {
-      this.$emit('addToRightBlock', block)
-    }
+    ...mapActions(useBlocksStore, ['addToRightBlock'])
   }
-
 }
 </script>
-
-<style scoped>
-
-</style>
