@@ -3,7 +3,7 @@
     <h1>LeftBottom</h1>
 
     <div
-        v-for="block in getLeftBottomBlock"
+        v-for="block in leftBottomBlock"
         :key="block.id"
         @click="addToLeftBlock(block)"
     >
@@ -14,24 +14,22 @@
 </template>
 
 <script>
-import {mapActions, mapState} from 'pinia';
-import {useBlocksStore} from "@/stores/blocks";
 import AppProduct from "@/components/AppProduct.vue";
 
 export default {
   name: "LeftBottom",
   components: {AppProduct},
-  computed: {
-    ...mapState(useBlocksStore, ['getLeftBottomBlock'])
+  props: {
+    leftBottomBlock: {
+      type: Array
+    }
   },
+
   methods: {
-    ...mapActions(useBlocksStore, ['addToLeftBlock'])
+    addToLeftBlock(block) {
+      this.$emit('addToLeftBlock', block)
+    }
   }
 
 }
 </script>
-
-<style scoped>
-
-
-</style>
