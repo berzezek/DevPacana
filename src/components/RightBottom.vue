@@ -3,7 +3,7 @@
     <h1>RightBottom</h1>
 
     <div
-        v-for="block in getRightBottomBlock"
+        v-for="block in rightBottomBlock"
         :key="block.id"
         @click="addToRightBlock(block)"
     >
@@ -21,11 +21,15 @@ import AppProduct from "@/components/AppProduct.vue";
 export default {
   name: "RightBottom",
   components: {AppProduct},
-  computed: {
-    ...mapState(useBlocksStore, ['getRightBottomBlock'])
+  props: {
+    rightBottomBlock: {
+      type: Array
+    }
   },
   methods: {
-    ...mapActions(useBlocksStore, ['addToRightBlock'])
+    addToRightBlock(block) {
+      this.$emit('addToRightBlock', block)
+    }
   }
 }
 </script>

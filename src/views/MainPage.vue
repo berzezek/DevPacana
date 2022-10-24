@@ -1,37 +1,21 @@
 <template>
-  <div class="main">
-
-    <div class="blocks">
-      <left-block />
-      <right-block />
-    </div>
-
-    <div class="blocks">
-      <left-bottom />
-      <right-bottom  />
-    </div>
-
+  <div>
+    <main-nav/>
+    <router-view />
   </div>
 </template>
 
 <script>
-import RightBlock from "@/components/RightBlock.vue";
-import LeftBlock from "@/components/LeftBlock.vue";
-import RightBottom from "@/components/RightBottom.vue";
-import LeftBottom from "@/components/LeftBottom.vue";
+import MainNav from "@/components/MainNav.vue";
 export default {
   name: "MainPage",
   components: {
-    RightBlock,
-    LeftBlock,
-    RightBottom,
-    LeftBottom
+    MainNav
   },
 }
 </script>
 
-<style scoped>
-
+<style >
 .main {
   display: flex;
   flex-direction: column;
@@ -42,7 +26,9 @@ export default {
 .blocks {
   display: flex;
   justify-content: space-between;
+  padding: 20px
 }
+
 
 
 </style>
